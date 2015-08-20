@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="com.mozartdiniz.cordova.plugin.gpsbackgrounder"
+        version="0.1.0">
+    <engines>
+        <engine name="cordova" version=">=3.5.2" />
+    </engines>
+
+    <name>GPS Backgrounder</name>
+    <description>GPS Backgrounder is a Cordova plugin for iOS that allow you track you device in background</description>
+    <author>Mozart Diniz</author>
+    <repo>https://github.com/mozartdiniz/GPSBackgrounder.git</repo>
+    <issue>https://github.com/mozartdiniz/GPSBackgrounder/issues</issue>
+    <license>MIT</license>
+
+    <keywords>maps, navigation, navigator, waze, ios, android, wp8</keywords>
+
+    <platform name="ios">
+
+        <hook type="after_plugin_install" src="hooks/add_swift_support.js" />
+
+        <config-file target="*-Info.plist" parent="NSLocationAlwaysUsageDescription">
+            <string>This app requires background location tracking</string>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="UIBackgroundModes">
+            <array>
+                <string>location</string>
+            </array>
+        </config-file>
+
+        <config-file target="config.xml" parent="/*">
+            <feature name="GPSBackgrounder">
+                <param name="ios-package" value="HWPGPSBackgrounder"/>
+            </feature>
+        </config-file>
+        <js-module src="www/GPSBackgrounder.js" name="GPSBackgrounder">
+            <clobbers target="GPSBackgrounder" />
+        </js-module>
+        <header-file src="src/ios/CDVHeaders.h" />
+        <source-file src="src/ios/CDVGPSBackgrounder.swift" />
+    </platform>
+
+</plugin>
