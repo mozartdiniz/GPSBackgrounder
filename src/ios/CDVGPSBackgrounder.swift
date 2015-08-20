@@ -52,10 +52,7 @@ import Foundation
     }
     
     func locationManager(manager: CLLocationManager!, didUpdateToLocation newLocation: CLLocation!, fromLocation oldLocation: CLLocation!) {
-        
-        NSLog("App is backgrounded. New location is %@", newLocation)
-        NSLog("callbackId %@", com.callbackId)
-        
+
         let coordinate : CLLocationCoordinate2D = newLocation.coordinate
 
         var script = "GPSBackgrounder.onPosition({latitude:\(coordinate.latitude), longitude: \(coordinate.longitude), speed: \(newLocation.speed), timestamp: '\(newLocation.timestamp)', accuracy: \(newLocation.horizontalAccuracy)})";
