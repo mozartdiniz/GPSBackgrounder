@@ -11,6 +11,7 @@ import CoreLocation
 import MapKit
 import Foundation
 
+@available(iOS 8.0, *)
 @objc(HWPGPSBackgrounder) class CDVGPSBackgrounder : CDVPlugin, CLLocationManagerDelegate {
     
     var com : CDVInvokedUrlCommand!
@@ -28,8 +29,8 @@ import Foundation
         
         com = command
         
-        var pluginResult = CDVPluginResult(status: CDVCommandStatus_OK)
-        commandDelegate.sendPluginResult(pluginResult, callbackId: command.callbackId)
+        let pluginResult = CDVPluginResult(status: CDVCommandStatus_OK)
+        commandDelegate!.sendPluginResult(pluginResult, callbackId: command.callbackId)
 
     }
     
@@ -37,27 +38,26 @@ import Foundation
 
         locationManager.startUpdatingLocation()
 
-        var pluginResult = CDVPluginResult(status: CDVCommandStatus_OK)
-        commandDelegate.sendPluginResult(pluginResult, callbackId: command.callbackId)
+        let pluginResult = CDVPluginResult(status: CDVCommandStatus_OK)
+        commandDelegate!.sendPluginResult(pluginResult, callbackId: command.callbackId)
 
     }
     
     func stop(command: CDVInvokedUrlCommand) {
 
         locationManager.stopUpdatingLocation()
-
-        var pluginResult = CDVPluginResult(status: CDVCommandStatus_OK)
-        commandDelegate.sendPluginResult(pluginResult, callbackId: command.callbackId)
+        let pluginResult = CDVPluginResult(status: CDVCommandStatus_OK)
+        commandDelegate!.sendPluginResult(pluginResult, callbackId: command.callbackId)
 
     }
     
-    func locationManager(manager: CLLocationManager!, didUpdateToLocation newLocation: CLLocation!, fromLocation oldLocation: CLLocation!) {
+    func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation!, fromLocation oldLocation: CLLocation) {
 
         let coordinate : CLLocationCoordinate2D = newLocation.coordinate
 
-        var script = "GPSBackgrounder.onPosition({latitude:\(coordinate.latitude), longitude: \(coordinate.longitude), speed: \(newLocation.speed), timestamp: '\(newLocation.timestamp)', accuracy: \(newLocation.horizontalAccuracy)})";
+        let script = "GPSBackgrounder.onPosition({latitude:\(coordinate.latitude), longitude: \(coordinate.longitude), speed: \(newLocation.speed), timestamp: '\(newLocation.timestamp)', accuracy: \(newLocation.horizontalAccuracy)})";
         
-        webView.stringByEvaluatingJavaScriptFromString(script)
+        webView!.stringByEvaluatingJavaScriptFromString(script)
         
     }
 
