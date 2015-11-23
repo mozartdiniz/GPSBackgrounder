@@ -35,11 +35,29 @@
                 <param name="ios-package" value="HWPGPSBackgrounder"/>
             </feature>
         </config-file>
+
         <js-module src="www/GPSBackgrounder.js" name="GPSBackgrounder">
             <clobbers target="GPSBackgrounder" />
         </js-module>
+
         <header-file src="src/ios/CDVHeaders.h" />
         <source-file src="src/ios/CDVGPSBackgrounder.swift" />
+    </platform>
+
+    <!-- wp8 -->
+    <platform name="wp8">
+
+        <config-file target="config.xml" parent="/*">
+          <feature name="GPSBackgrounder">
+            <param name="wp-package" value="GPSBackgrounder"/>
+          </feature>
+        </config-file>
+
+        <js-module src="www/GPSBackgrounder.js" name="GPSBackgrounder">
+            <clobbers target="GPSBackgrounder" />
+        </js-module>        
+
+        <source-file src="src/wp8/GPSBackgrounder.cs" />
     </platform>
 
 </plugin>
