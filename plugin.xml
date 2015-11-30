@@ -53,11 +53,25 @@
           </feature>
         </config-file>
 
-        <js-module src="www/GPSBackgrounder.js" name="GPSBackgrounder">
+        <js-module src="www/wp8/GPSBackgrounder.js" name="GPSBackgrounder">
             <clobbers target="GPSBackgrounder" />
         </js-module>        
 
-        <source-file src="src/wp8/GPSBackgrounder.cs" />
     </platform>
+
+    <!-- android -->
+    <platform name="android">
+
+        <config-file target="config.xml" parent="/*">
+          <feature name="GPSBackgrounder">
+            <param name="wp-package" value="GPSBackgrounder"/>
+          </feature>
+        </config-file>
+
+        <js-module src="www/android/GPSBackgrounder.js" name="GPSBackgrounder">
+            <clobbers target="GPSBackgrounder" />
+        </js-module>        
+
+    </platform>    
 
 </plugin>

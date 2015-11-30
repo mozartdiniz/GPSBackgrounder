@@ -22,7 +22,7 @@ namespace WPCordovaClassLib.Cordova.Commands
         public void initialize(string options)
         {
             // Se tiver inicializado corretamente, chamar esse cara, ele chama o callback de success.
-            // DispatchCommandResult(new PluginResult(PluginResult.Status.OK));
+            DispatchCommandResult(new PluginResult(PluginResult.Status.OK));
 
             // Se falhar, chamar esse, ele chama o callback de error.
             // DispatchCommandResult(new PluginResult(PluginResult.Status.ERROR, error));           
@@ -36,7 +36,7 @@ namespace WPCordovaClassLib.Cordova.Commands
         public void start(string options)
         {
             // Se tiver inicializado corretamente, chamar esse cara, ele chama o callback de success.
-            // DispatchCommandResult(new PluginResult(PluginResult.Status.OK));
+            DispatchCommandResult(new PluginResult(PluginResult.Status.OK));
 
             // Se falhar, chamar esse, ele chama o callback de error.
             // DispatchCommandResult(new PluginResult(PluginResult.Status.ERROR, error));            
@@ -50,7 +50,7 @@ namespace WPCordovaClassLib.Cordova.Commands
         public void stop(string options)
         {
             // Se pausar o servico corretamente, chama esse cara
-            // DispatchCommandResult(new PluginResult(PluginResult.Status.OK));
+            DispatchCommandResult(new PluginResult(PluginResult.Status.OK));
 
             // Se falhar, chamar esse, ele chama o callback de error.
             // DispatchCommandResult(new PluginResult(PluginResult.Status.ERROR, error));           
@@ -67,7 +67,7 @@ namespace WPCordovaClassLib.Cordova.Commands
                 A resposta dele deve ser um JSON em string.
                 "{\"latitude\":0.0, \"longitude\": 0.0, \"speed\": 0.0, \"timestamp\": 323423, \"accuracy\": 30}"
             */    
-            // DispatchCommandResult(new PluginResult(PluginResult.Status.OK));
+            DispatchCommandResult(new PluginResult(PluginResult.Status.OK));
 
             // Se falhar, chamar esse, ele chama o callback de error.
             // DispatchCommandResult(new PluginResult(PluginResult.Status.ERROR, error));             
