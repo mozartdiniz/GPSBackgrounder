@@ -22,7 +22,7 @@ GPSBackgrounder = {
 				});
 			}.bind(this),
 			function (e) {
-			    alert(e);
+			    console.log(e);
 			},
 			{ 
 			    enableHighAccuracy: true 
